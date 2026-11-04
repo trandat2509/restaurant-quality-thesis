@@ -1,1 +1,48 @@
+name: Kiem tra ung dung
 
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  kiem-tra:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Lay ma nguon
+        uses: actions/checkout@v7
+
+      - name: Chuan bi Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Cai thu vien
+        run: python -m pip install -r app/requirements.txt
+
+      - name: Kiem tra cu phap
+        run: python -m compileall -q app
+
+      - name: Chay thu giao dien
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from streamlit.testing.v1 import AppTest
+
+          app = AppTest.from_file(
+              str(Path("app/main.py").resolve()),
+              default_timeout=30,
+          ).run()
+
+          assert not app.exception, "Loi khi khoi dong"
+
+          for ten in list(app.sidebar.radio(key="dieu_huong").options):
+              app.sidebar.radio(key="dieu_huong").set_value(ten).run()
+              assert not app.exception, f"Loi tai trang: {ten}"
+              print(f"OK: {ten}")
+          PY
