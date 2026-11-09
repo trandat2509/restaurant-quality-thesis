@@ -1,0 +1,61 @@
+{
+  "schema_version": 2,
+  "enabled": true,
+  "active_profile": "chinh_thuc_9_9",
+  "profiles": {
+    "chinh_thuc_9_9": {
+      "title": "Điều kiện chính thức: ít nhất 9 nhận xét và 9 nhóm văn bản mỗi tháng",
+      "temporary": false,
+      "data_requirements": {
+        "min_reviews_current": 9,
+        "min_reviews_each_baseline_period": 9,
+        "min_distinct_text_groups_current": 9,
+        "min_distinct_text_groups_each_baseline_period": 9
+      }
+    }
+  },
+  "policy": {
+    "primary_period": "month",
+    "timezone": "Asia/Ho_Chi_Minh",
+    "primary_metric": "complaint_rate",
+    "counting_unit": "review_id",
+    "metrics": {
+      "complaint_rate": "NEG / all_reviews",
+      "negative_content_rate": "(NEG + MIX) / all_reviews",
+      "negative_among_mentions_rate": "(NEG + MIX) / (POS + NEU + NEG + MIX)"
+    },
+    "data_requirements": {
+      "min_reviews_current": 9,
+      "min_reviews_each_baseline_period": 9,
+      "min_distinct_text_groups_current": 9,
+      "min_distinct_text_groups_each_baseline_period": 9,
+      "require_closed_current_period": true,
+      "zero_review_period_is_missing": true
+    },
+    "thresholds": {
+      "yellow": {
+        "min_current_rate": 0.1,
+        "min_increase_pp": 10,
+        "min_problem_reviews": 3
+      },
+      "red": {
+        "min_current_rate": 0.2,
+        "min_increase_pp": 20,
+        "min_problem_reviews": 5
+      }
+    },
+    "uncertainty": {
+      "wilson_z": 1.96,
+      "display_interval": true,
+      "affects_level": false
+    },
+    "model_confidence_filter": null,
+    "manual_labels_replace_predictions": true,
+    "label_selection": "confirmed_manual_else_model",
+    "baseline_implementation": "arithmetic_mean_of_previous_calendar_period_rates",
+    "baseline_windows": [
+      2,
+      3
+    ]
+  }
+}

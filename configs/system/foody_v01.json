@@ -1,0 +1,327 @@
+{
+  "system_version": "foody_v01",
+  "model_version": "phobert_foody_3350_final_v01",
+  "corpus_file": "data/processed/reviews_thesis_base.csv",
+  "labeled_file": "data/training/foody_3350_v02/foody_absa_3350_labeled.csv",
+  "confirmed_file": "data/modeling/foody_3350_v02/absa_confirmed.csv",
+  "reference_run_config": "configs/system/reference_phobert_cv_v02.json",
+  "actual_cv_run_config": "reports/modeling/phobert_foody_3350_v02/run_config.json",
+  "preprocessing_file": "data/modeling/foody_3350_v02/phobert_preprocessing.json",
+  "segmented_file": "data/modeling/foody_3350_v02/absa_phobert_segmented.csv",
+  "encoder_dir": "models/phobert_vlsp_source_v02",
+  "vncorenlp_dir": "experiments/absa_training_experiment_v01/tools/vncorenlp",
+  "system_data_dir": "data/system/foody_v01",
+  "system_report_dir": "reports/system/foody_v01",
+  "model_dir": "models/phobert_foody_3350_final_v01",
+  "training_report_dir": "reports/modeling/phobert_foody_3350_final_v01",
+  "prediction_dir": "data/predictions/foody_v01",
+  "expected_corpus_rows": 40176,
+  "expected_labeled_rows": 3350,
+  "expected_train_rows": 3348,
+  "excluded_review_ids": [
+    "foody_18515513",
+    "foody_3514027"
+  ],
+  "inference_batch_size": 1,
+  "inference_review_chunk_size": 25,
+  "inference_window_batch_size": 8,
+  "save_every_optimizer_steps": 100,
+  "log_every_batches": 200,
+  "system_schema_version": 2,
+  "system_input_sources": {
+    "master": [
+      "data/system/foody_v01/reviews_master.csv"
+    ],
+    "data_manifest": [
+      "data/system/foody_v01/data_manifest.json"
+    ],
+    "manual": [
+      "data/training/foody_3350_v02/foody_absa_3350_labeled.csv",
+      "foody_evidence_v01/data/source/foody_absa_3350_labeled.csv"
+    ],
+    "predictions": [
+      "foody_evidence_v01/data/source/aspect_predictions.csv"
+    ],
+    "evidence": [
+      "foody_evidence_v01/data/predictions/foody_evidence_v01/unlabeled/aspect_predictions_with_evidence.csv"
+    ],
+    "evidence_manifest": [
+      "foody_evidence_v01/data/predictions/foody_evidence_v01/unlabeled/prediction_manifest.json"
+    ],
+    "a8_labels": [
+      "ung_vien_A8/ket_qua/ung_vien_a8.csv"
+    ],
+    "a8_alerts": [
+      "ung_vien_A8/ket_qua_he_thong/canh_bao_a8.csv"
+    ],
+    "a8_manifest": [
+      "ung_vien_A8/ket_qua_he_thong/tong_hop_he_thong.json"
+    ]
+  },
+  "alert_policy": {
+    "content": {
+      "reflection_labels": [
+        "NEG",
+        "MIX"
+      ],
+      "severity_labels": [
+        "light",
+        "serious",
+        "unknown"
+      ],
+      "severity_policy": "Chỉ gán theo luật của đúng khía cạnh; không khớp để unknown; không sao chép severity chung cũ.",
+      "confidence_policy": {
+        "calibrated": false,
+        "review_below": 0.65,
+        "review_margin_below": 0.15,
+        "affects_complaint_rate": false
+      },
+      "aspect_rules": [
+        {
+          "id": "A1_SERIOUS_ABUSE",
+          "aspect": "A1",
+          "severity": "serious",
+          "patterns_any": [
+            "(?:nhân viên|chủ quán|phục vụ|bảo vệ).{0,55}(?:chửi|mắng)|bị\\s+chửi|chửi khách|chửi tục|chửi bới",
+            "lăng mạ|sỉ nhục|xúc phạm",
+            "phân biệt đối xử",
+            "đe dọa|hăm dọa|doạ đánh|dọa đánh"
+          ],
+          "exclude_patterns": [
+            "(?:không|ko|chưa)\\s+(?:hề\\s+)?(?:chửi|mắng|lăng mạ|sỉ nhục|xúc phạm|phân biệt đối xử|đe dọa|hăm dọa)"
+          ]
+        },
+        {
+          "id": "A1_LIGHT_ATTITUDE",
+          "aspect": "A1",
+          "severity": "light",
+          "patterns_any": [
+            "(?:nhân viên|phục vụ|chủ quán).{0,60}(?:khó chịu|cộc cằn|thờ ơ|bất lịch sự|hỗn|cau có|hời hợt)",
+            "(?:thái độ|phục vụ).{0,30}(?:tệ|kém|không tốt|ko tốt)",
+            "gọi.{0,20}(?:không|ko).{0,10}(?:trả lời|thèm|ra)"
+          ]
+        },
+        {
+          "id": "A2_SERIOUS_DURATION",
+          "aspect": "A2",
+          "severity": "serious",
+          "patterns_any": [],
+          "min_wait_minutes": 60,
+          "exclude_patterns": [
+            "(?:không|ko|chẳng)(?:\\s+cần|\\s+phải)?\\s+(?:chờ|đợi)"
+          ]
+        },
+        {
+          "id": "A2_SERIOUS_UNSERVED",
+          "aspect": "A2",
+          "severity": "serious",
+          "patterns_any": [
+            "(?:chờ|đợi).{0,90}(?:bỏ về|không được phục vụ|ko được phục vụ)"
+          ]
+        },
+        {
+          "id": "A2_LIGHT_WAIT",
+          "aspect": "A2",
+          "severity": "light",
+          "patterns_any": [
+            "(?:chờ|đợi).{0,20}(?:lâu|mãi|dài)",
+            "(?:ra món|lên món|phục vụ|giao món).{0,20}(?:chậm|lâu)"
+          ],
+          "exclude_patterns": [
+            "(?:không|ko|chẳng)(?:\\s+cần|\\s+phải)?\\s+(?:chờ|đợi)",
+            "(?:chờ|đợi)\\s+(?:không|ko)\\s+lâu"
+          ]
+        },
+        {
+          "id": "A3_SERIOUS_SPOILED",
+          "aspect": "A3",
+          "severity": "serious",
+          "patterns_any": [
+            "(?:đồ ăn|món|thức ăn|thịt|cá|gà|bò|hải sản).{0,50}(?:ôi thiu|bị thiu|bị hỏng|mốc|bốc mùi|hôi thối)",
+            "(?:thịt|gà|bò|heo|lợn).{0,20}(?:còn sống|chưa chín)",
+            "thực phẩm.{0,20}hết hạn"
+          ],
+          "exclude_patterns": [
+            "(?:không|ko)\\s+(?:bị\\s+)?(?:ôi thiu|thiu|hỏng|mốc)"
+          ]
+        },
+        {
+          "id": "A3_LIGHT_FOOD",
+          "aspect": "A3",
+          "severity": "light",
+          "patterns_any": [
+            "(?:không|ko|k)\\s+(?:được\\s+)?ngon",
+            "(?:đồ ăn|món|thịt|cá|gà|bò|nước|bún|cơm).{0,35}(?:nguội|quá mặn|nhạt|khô|dai|ít|tanh)",
+            "khẩu phần.{0,15}(?:ít|nhỏ)"
+          ]
+        },
+        {
+          "id": "A4_SERIOUS_SAFETY",
+          "aspect": "A4",
+          "severity": "serious",
+          "patterns_any": [
+            "chập điện|rò điện|dây điện.{0,15}hở|điện giật|sập trần",
+            "(?:cồn|bếp).{0,45}(?:tràn|nổ).{0,50}cháy",
+            "(?:sàn|cầu thang).{0,25}trơn.{0,25}(?:ngã|té)"
+          ],
+          "exclude_patterns": [
+            "(?:không|ko|chưa)\\s+(?:có\\s+)?(?:chập điện|rò điện|điện giật|sập trần)"
+          ]
+        },
+        {
+          "id": "A4_LIGHT_SPACE",
+          "aspect": "A4",
+          "severity": "light",
+          "patterns_any": [
+            "(?:không gian|quán|phòng|chỗ ngồi).{0,35}(?:chật|nóng|ồn|bí)",
+            "(?:máy lạnh|điều hòa|điều hoà|quạt).{0,25}(?:hỏng|không mát|ko mát)",
+            "bàn ghế.{0,20}(?:cũ|hỏng|lung lay)"
+          ]
+        },
+        {
+          "id": "A5_SERIOUS_CONTAMINATION",
+          "aspect": "A5",
+          "severity": "serious",
+          "patterns_any": [
+            "(?:món|đồ ăn|thức ăn|cơm|bún|mì|tô|tố|bát|dĩa|đĩa|ly|cốc|nước|canh|miến|lẩu).{0,80}(?:giòi|gián|sâu|ruồi|dị vật|mảnh nhựa|mảnh kính|mảnh sắt|tóc)",
+            "(?:giòi|gián|sâu|ruồi|dị vật|mảnh nhựa|mảnh kính|mảnh sắt).{0,60}(?:trong|rớt vào|rơi vào).{0,30}(?:món|đồ ăn|thức ăn|cơm|bún|mì|bát|đĩa|dĩa|ly|canh|miến|lẩu)",
+            "ôi thiu|thực phẩm.{0,15}hết hạn"
+          ],
+          "exclude_patterns": [
+            "(?:không|ko|chưa)\\s+(?:có\\s+)?(?:giòi|gián|sâu|ruồi|dị vật)"
+          ]
+        },
+        {
+          "id": "A5_SERIOUS_HEALTH",
+          "aspect": "A5",
+          "severity": "serious",
+          "patterns_any": [
+            "ngộ độc",
+            "đau bụng|tiêu chảy|nôn mửa|khó thở|nhập viện|cấp cứu"
+          ],
+          "patterns_all": [
+            "ăn|uống|ngộ độc"
+          ],
+          "exclude_patterns": [
+            "(?:không|ko|chưa)\\s+(?:có\\s+)?(?:ai\\s+)?(?:bị\\s+)?(?:ngộ độc|đau bụng|tiêu chảy|nôn mửa)"
+          ]
+        },
+        {
+          "id": "A5_LIGHT_CLEANLINESS",
+          "aspect": "A5",
+          "severity": "light",
+          "patterns_any": [
+            "(?:vệ sinh|nhà vệ sinh|toilet|bàn|bát|đũa|chén|ly|cốc|quán).{0,35}(?:bẩn|dơ|hôi|không sạch|ko sạch)",
+            "vệ sinh.{0,20}(?:kém|tệ)",
+            "(?:không|ko)\\s+(?:được\\s+)?sạch"
+          ]
+        },
+        {
+          "id": "A6_SERIOUS_CHARGE",
+          "aspect": "A6",
+          "severity": "serious",
+          "patterns_any": [
+            "tính khống|thu khống",
+            "(?:tính|thu).{0,25}(?:thêm|tiền).{0,50}(?:không gọi|ko gọi|không dùng|ko dùng)",
+            "(?:thu|trừ|tính)\\s+(?:tiền\\s+)?(?:hai|2)\\s+lần",
+            "(?:chặt chém|lừa đảo)",
+            "(?:không|ko).{0,15}hoàn tiền"
+          ],
+          "exclude_patterns": [
+            "(?:không|ko)\\s+(?:hề\\s+|phải\\s+)?(?:tính khống|thu khống|chặt chém|lừa đảo)"
+          ]
+        },
+        {
+          "id": "A6_LIGHT_PRICE",
+          "aspect": "A6",
+          "severity": "light",
+          "patterns_any": [
+            "(?:giá|tiền|bill|hóa đơn|hoá đơn).{0,30}(?:đắt|mắc|cao|chát|không xứng|ko xứng)",
+            "(?:đắt|mắc).{0,15}(?:quá|so với|hơn)",
+            "phụ thu.{0,30}(?:không báo|ko báo|bất hợp lý)"
+          ]
+        },
+        {
+          "id": "A7_SERIOUS_REFUSAL",
+          "aspect": "A7",
+          "severity": "serious",
+          "patterns_any": [
+            "(?:từ chối|không chịu|ko chịu).{0,25}(?:giải quyết|xử lý|hoàn tiền|bồi thường)",
+            "(?:khiếu nại|phản ánh).{0,45}(?:nhiều lần|không giải quyết|ko giải quyết|không xử lý)"
+          ],
+          "exclude_patterns": [
+            "(?:không|ko)\\s+(?:hề\\s+)?từ chối"
+          ]
+        },
+        {
+          "id": "A7_LIGHT_RESPONSE",
+          "aspect": "A7",
+          "severity": "light",
+          "patterns_any": [
+            "(?:không|ko).{0,15}(?:phản hồi|trả lời).{0,20}(?:tin nhắn|khiếu nại|phản ánh)?",
+            "(?:phản hồi|hỗ trợ|giải quyết).{0,20}(?:chậm|kém|qua loa)"
+          ]
+        }
+      ]
+    },
+    "trend": {
+      "primary_period": "month",
+      "timezone": "Asia/Ho_Chi_Minh",
+      "baseline_previous_calendar_periods": 3,
+      "primary_metric": "complaint_rate",
+      "counting_unit": "review_id",
+      "metrics": {
+        "complaint_rate": "NEG / all_reviews",
+        "negative_content_rate": "(NEG + MIX) / all_reviews",
+        "negative_among_mentions_rate": "(NEG + MIX) / (POS + NEU + NEG + MIX)"
+      },
+      "data_requirements": {
+        "min_reviews_current": 9,
+        "min_reviews_each_baseline_period": 9,
+        "min_distinct_text_groups_current": 9,
+        "min_distinct_text_groups_each_baseline_period": 9,
+        "require_closed_current_period": true,
+        "zero_review_period_is_missing": true
+      },
+      "thresholds": {
+        "yellow": {
+          "min_current_rate": 0.1,
+          "min_increase_pp": 10,
+          "min_problem_reviews": 3
+        },
+        "red": {
+          "min_current_rate": 0.2,
+          "min_increase_pp": 20,
+          "min_problem_reviews": 5
+        }
+      },
+      "uncertainty": {
+        "wilson_z": 1.96,
+        "display_interval": true,
+        "affects_level": false
+      },
+      "model_confidence_filter": null,
+      "manual_labels_replace_predictions": true,
+      "baseline_implementation": "arithmetic_mean_of_three_calendar_period_rates",
+      "label_selection": "confirmed_manual_else_model"
+    },
+    "a8": {
+      "source": "a8_inputs.csv",
+      "use_legacy_incident_rules": false,
+      "preserve_review_status": true,
+      "auto_confirm_model_predictions": false
+    }
+  },
+  "operational_label_column": "label",
+  "trend_label_column": "label",
+  "system_inputs_manifest": "system_manifest.json",
+  "system_aspects_file": "aspect_inputs.csv",
+  "system_a8_file": "a8_inputs.csv",
+  "system_update_policy": {
+    "overwrite_generated_outputs": true,
+    "preserve_corpus_and_training_files": true,
+    "require_complete_evidence_manifest": true,
+    "manual_label_priority": true,
+    "backup_per_update": false
+  }
+}

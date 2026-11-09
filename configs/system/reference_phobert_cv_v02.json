@@ -1,0 +1,42 @@
+{
+  "version": "phobert_cv_v02.0",
+  "dataset_sha256": "812c9e3dbbb23e9a3a85d099c704a7dbb1448ec23d50fa897a14aa62bd6a7917",
+  "split_sha256": "dd920d58d0be784c384296af121f1da3ac25e77eec21f10878950243bf8b3b46",
+  "model_dir": "D:\\STUDY_AI-K3\\KHOA_LUAN_TOT_NGHIEP\\restaurant_quality_thesis\\models\\phobert_foody_3350_v02",
+  "report_dir": "D:\\STUDY_AI-K3\\KHOA_LUAN_TOT_NGHIEP\\restaurant_quality_thesis\\reports\\modeling\\phobert_foody_3350_v02",
+  "preprocessing_sha256": "95c6df09785537e9488ed5f218cf01e93243100d13a2063bfd3297fa951f7cfa",
+  "model_name": "vinai/phobert-base",
+  "epochs": 3,
+  "batch_size": 1,
+  "accumulation_steps": 8,
+  "learning_rate": 2e-05,
+  "weight_decay": 0.01,
+  "max_length": 256,
+  "overlap": 32,
+  "weighting": "sqrt_balanced",
+  "seed": 42,
+  "save_models": true,
+  "test_used_for_epoch_selection": false,
+  "pooling": "mean_logits_over_all_review_windows",
+  "labels": [
+    "NONE",
+    "POS",
+    "NEU",
+    "NEG",
+    "MIX"
+  ],
+  "A8_trained": false,
+  "encoder_init": {
+    "path": "D:\\STUDY_AI-K3\\KHOA_LUAN_TOT_NGHIEP\\restaurant_quality_thesis\\models\\phobert_vlsp_source_v02",
+    "manifest_sha256": "2fe9a046889c0577a2a94d96840d3fc3a512e728be73de3d7d9d1d3fe665a12d",
+    "checkpoint_sha256": {
+      "config.json": "112bb2be6e92974571d085d736db6dc91745b83365ea23e27e6ffb76f804e87f",
+      "model.safetensors": "a742972cf12e05bf83de156b2d8ef090b08ec66b1041b070875ca797948d91be"
+    },
+    "classifier_transferred": false,
+    "best_source_epoch": 2,
+    "source_overlap_audit_sha256": "4f722963982a29f84527a1978b1d064a26d8eb24aa83f7d07682bf3e64071ef6"
+  },
+  "label_policy": "all_schema_labels_allowed_even_if_absent_in_fold_training",
+  "notes": "Số epoch cố định trước; học đủ 4 phần, chỉ đánh giá phần thứ 5 sau khi học xong. Mỗi lượt tải lại pretrained."
+}
