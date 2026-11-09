@@ -1,0 +1,14 @@
+{
+  "batch_id": "foody_day_du",
+  "annotation_version": "foody_add_confirmed",
+  "manual_confirmed": true,
+  "replace_manual": true,
+  "replace_predictions": true,
+  "manual_file": "manual.csv",
+  "predictions_file": "predictions.csv",
+  "evidence_file": "evidence.csv",
+  "source_manifest_file": "import_proof.json",
+  "model_profile_file": "model_profile.json",
+  "evidence_profile_file": "evidence_profile.json",
+  "note": "Nhập đủ nhãn/bằng chứng máy đã xuất, giữ nguồn tay riêng. Không chạy lại dự đoán; kế thừa A8 và lịch sử huấn luyện."
+}

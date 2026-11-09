@@ -1,0 +1,37 @@
+{
+  "reviews": 40176,
+  "excluded_future_reviews": 0,
+  "restaurants": 569,
+  "observed_restaurant_months": 12873,
+  "calendar_restaurant_months": 60778,
+  "coverage_eligible_restaurant_months": 127,
+  "eligible_restaurant_months": 127,
+  "eligible_restaurants": 73,
+  "eligible_aspect_comparisons": 889,
+  "aspect_metric_rows": 90111,
+  "alert_rows": 37,
+  "alert_restaurant_months": 26,
+  "alert_restaurants": 19,
+  "levels": {
+    "yellow": 31,
+    "red": 6
+  },
+  "coverage_statuses": {
+    "missing_baseline": 951,
+    "missing_current": 47336,
+    "insufficient_current": 10922,
+    "open_period": 569,
+    "insufficient_baseline": 873,
+    "eligible": 127
+  },
+  "model_coverage_ready": true,
+  "pending_model_reviews": 0,
+  "model_version": "phobert_foody_3350_final_v01",
+  "profile": "tam_thoi_5_3",
+  "temporary": true,
+  "as_of": "2026-10-29T23:59:59.999999+07:00",
+  "latest_review_month": "2026-07",
+  "latest_closed_month": "2026-09",
+  "latest_closed_month_alert_rows": 0,
+  "new_independent_model_evaluation": false
+}

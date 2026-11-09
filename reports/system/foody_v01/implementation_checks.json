@@ -1,0 +1,36 @@
+{
+  "actual_data_preparation": {
+    "passed": true,
+    "corpus_reviews": 40176,
+    "manual_reviews": 3350,
+    "training_reviews": 3348,
+    "unlabeled_reviews": 36826,
+    "uncertain_training_rows_preserved": 1
+  },
+  "automated_checks": {
+    "passed": 13,
+    "failed": 0,
+    "static_undefined_names_and_imports": "passed",
+    "syntax": "passed"
+  },
+  "cpu_integration": {
+    "model": "tiny randomly initialized BERT, synthetic fixture only",
+    "train_export_reload": "passed",
+    "interrupted_training_resume_equal_to_uninterrupted_weights": "passed",
+    "interrupted_prediction_resume_no_duplicate_pairs": "passed",
+    "separate_smoke_output": "passed",
+    "multiwindow_mean_logits_and_gradient": "passed",
+    "torch_version": "2.5.1+cpu",
+    "transformers_version": "4.46.3"
+  },
+  "full_phobert_training_completed": false,
+  "full_corpus_predictions_created": false,
+  "remaining_to_run_on_user_machine": [
+    "checkpoint VLSP đầy đủ",
+    "hai tệp tách từ đã dùng khi chạy 5 phần",
+    "VnCoreNLP và Java cho văn bản mới",
+    "huấn luyện toàn bộ tập bằng GPU",
+    "chạy thử rồi dự đoán corpus"
+  ],
+  "data_and_old_models_overwritten": false
+}

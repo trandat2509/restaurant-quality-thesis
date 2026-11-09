@@ -1,0 +1,5 @@
+{
+  "model_version": "phobert_foody_add",
+  "model_dir": "models/phobert_foody_add",
+  "vncorenlp_dir": "experiments/absa_training_experiment_v01/tools/vncorenlp"
+}

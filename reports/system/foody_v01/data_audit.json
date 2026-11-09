@@ -1,0 +1,159 @@
+{
+  "created_at": "2026-10-17T08:26:43.229374+00:00",
+  "status": "passed",
+  "corpus_rows": 40176,
+  "labeled_rows": 3350,
+  "train_rows": 3348,
+  "unlabeled_rows": 36826,
+  "restaurants": 569,
+  "excluded_review_ids": [
+    "foody_18515513",
+    "foody_3514027"
+  ],
+  "uncertain_train_rows": 1,
+  "uncertain_train_review_ids": [
+    "foody_17634224"
+  ],
+  "uncertain_policy": "preserved_as_in_experiment",
+  "duplicate_text_group_rows": 1950,
+  "date_policy": "review_date_iso theo giờ Việt Nam; không dùng crawl_date thay ngày đăng",
+  "temporal_coverage_three_prior_calendar_months": {
+    "5": {
+      "restaurant_months": 128,
+      "restaurants": 74
+    },
+    "10": {
+      "restaurant_months": 4,
+      "restaurants": 4
+    },
+    "20": {
+      "restaurant_months": 0,
+      "restaurants": 0
+    }
+  },
+  "training_label_counts": {
+    "A1": {
+      "NONE": 1581,
+      "POS": 991,
+      "NEU": 36,
+      "NEG": 639,
+      "MIX": 101
+    },
+    "A2": {
+      "NONE": 2192,
+      "POS": 568,
+      "NEU": 7,
+      "NEG": 533,
+      "MIX": 48
+    },
+    "A3": {
+      "NONE": 393,
+      "POS": 1503,
+      "NEU": 78,
+      "NEG": 561,
+      "MIX": 813
+    },
+    "A4": {
+      "NONE": 1762,
+      "POS": 859,
+      "NEU": 55,
+      "NEG": 411,
+      "MIX": 261
+    },
+    "A5": {
+      "NONE": 2417,
+      "POS": 417,
+      "NEU": 2,
+      "NEG": 486,
+      "MIX": 26
+    },
+    "A6": {
+      "NONE": 1530,
+      "POS": 1023,
+      "NEU": 201,
+      "NEG": 489,
+      "MIX": 105
+    },
+    "A7": {
+      "NONE": 2805,
+      "POS": 35,
+      "NEU": 2,
+      "NEG": 477,
+      "MIX": 29
+    }
+  },
+  "warnings": [
+    "Giữ nguyên 1 nhận xét có uncertain=1 theo tập thực nghiệm; không tự đổi nhãn/cờ."
+  ],
+  "manual_labels_modified": false,
+  "model_features": [
+    "review_text_nlp"
+  ],
+  "targets": [
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "A5",
+    "A6",
+    "A7"
+  ],
+  "system_schema_version": 2,
+  "latest_system_update": "2026-10-26T04:28:00.218937+00:00",
+  "system_update": {
+    "reviews": 40176,
+    "restaurants": 569,
+    "manual_reviews": 3350,
+    "model_only_reviews": 36826,
+    "aspect_pairs": 281232,
+    "manual_aspect_pairs": 23450,
+    "model_aspect_pairs": 257782,
+    "manual_model_label_disagreements": 933,
+    "operational_manual_label_changes_vs_training": 0,
+    "a8_alerts": 377,
+    "a8_by_status": {
+      "CAN_XEM_XET": 219,
+      "DA_DUYET": 158
+    },
+    "a8_explicit_negative_reviews": 98,
+    "a8_unlabeled_reviews": 39701,
+    "evidence_status_counts": {
+      "manual_confirmed": 10742,
+      "manual_evidence_needs_review": 17,
+      "mixed_evidence_polarity_not_separated": 12758,
+      "model_extracted_unverified": 75947,
+      "needs_review_no_evidence": 1466,
+      "not_mentioned_by_sentiment_model": 167611,
+      "not_mentioned_manual": 12691
+    },
+    "evidence_quality_flag_counts": {
+      "ambiguous_manual_position": 17,
+      "fragment_inside_word": 4390,
+      "manual_annotation_marked_uncertain": 7,
+      "missing_evidence": 1466,
+      "mixed_polarity_not_separated": 12758,
+      "very_short_fragment": 9523
+    },
+    "base_files_modified": false,
+    "model_retrained": false,
+    "alerts_rebuilt": false,
+    "new_independent_model_evaluation": false,
+    "requires_legacy_alerts": false
+  },
+  "base_training_snapshot_unchanged": true,
+  "source_paths": {
+    "master": "data\\system\\foody_v01\\reviews_master.csv",
+    "data_manifest": "data\\system\\foody_v01\\data_manifest.json",
+    "manual": "data\\training\\foody_3350_v02\\foody_absa_3350_labeled.csv",
+    "predictions": "foody_evidence_v01\\data\\source\\aspect_predictions.csv",
+    "evidence": "foody_evidence_v01\\data\\predictions\\foody_evidence_v01\\unlabeled\\aspect_predictions_with_evidence.csv",
+    "evidence_manifest": "foody_evidence_v01\\data\\predictions\\foody_evidence_v01\\unlabeled\\prediction_manifest.json",
+    "a8_labels": "ung_vien_A8\\ket_qua\\ung_vien_a8.csv",
+    "a8_alerts": "ung_vien_A8\\ket_qua_he_thong\\canh_bao_a8.csv",
+    "a8_manifest": "ung_vien_A8\\ket_qua_he_thong\\tong_hop_he_thong.json"
+  },
+  "output_sha256": {
+    "aspect_inputs.csv": "ce73d2af1145e21854bf5329b4748fe333206fe9a853e7669824ff642a76b6f9",
+    "a8_inputs.csv": "7891c65fac23d4b7495692b5f0ae65f99568d62a7104209b50432a56f004fc43"
+  }
+}

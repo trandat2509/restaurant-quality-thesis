@@ -1,0 +1,46 @@
+{
+  "identity": {
+    "prediction_sha256": "079b48fdbcb7577536bf44851ab4c40f24a4256912854997fb93299ac9e0915f",
+    "manual_sha256": "a03d9a16177b29c1eea8c03a5749dedb21bbdcfce417e7703e497e02cb6ca60c",
+    "corpus_sha256": "73b94c112df490ccdfcb7d80873e7debc3a878f0781fea0d4976f62f6c6aedcb",
+    "model_profiles": {
+      "model_profile.json": {
+        "model_version": "phobert_foody_add",
+        "model_dir": "models/phobert_foody_add",
+        "vncorenlp_dir": "experiments/absa_training_experiment_v01/tools/vncorenlp"
+      },
+      "evidence_profile.json": {
+        "format": "foody_add",
+        "model_version": "phobert_evidence_add",
+        "model_dir": "models/phobert_evidence_add",
+        "vncorenlp_dir": "experiments/absa_training_experiment_v01/tools/vncorenlp"
+      }
+    },
+    "format": 2,
+    "prediction_proof_sha256": "f44d8246dbd359dfaa606a0a7fba9887cd31f0cb3d7ade4d19472997988538ea",
+    "machine_sha256": "cbc87776154b2abcd6337ce9a00cad1c6b9651ff5752fb19d50d618834c17167"
+  },
+  "summary": {
+    "manual_reviews": 12350,
+    "machine_reviews_existing": 40176,
+    "machine_pairs_existing": 281232,
+    "manual_position_ambiguous_pairs": 101,
+    "manual_multiple_fragment_cells": 556,
+    "machine_reviews_to_predict": 0,
+    "evidence_pairs_to_predict": 0
+  },
+  "annotation_audit": {
+    "old_config_exclusions_present_in_confirmed_input": [
+      "foody_17634224"
+    ],
+    "operational_decision": "Giữ nhãn đã xác nhận trong manual.csv; không sửa trọng số hoặc hồ sơ huấn luyện gốc."
+  },
+  "output_sha256": {
+    "manual.csv": "a03d9a16177b29c1eea8c03a5749dedb21bbdcfce417e7703e497e02cb6ca60c",
+    "predictions.csv": "4e51fb373efa2db9ed7e7e7c1010f5fb63b8378895337df197178e5779b883cb",
+    "evidence.csv": "ebfd4be59e1fb51ba191b837245bfe2788ef3893b472825758e7cdfdb0126499",
+    "model_profile.json": "e184fec384ab387dc2b55fc7b1b57596bcdbb8e11266bb507aeaf1f839e16647",
+    "evidence_profile.json": "b18763ab68591627c3acd7759f409519b85b7524b40aefc5d9f38e737d236925",
+    "batch.json": "9a227037781c10cd27cf3ec4b95a0a41b31c114ac95b3f490b648de03e757aa2"
+  }
+}

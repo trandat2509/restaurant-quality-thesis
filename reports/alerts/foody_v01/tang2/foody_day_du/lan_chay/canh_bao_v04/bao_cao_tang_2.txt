@@ -1,0 +1,24 @@
+# Kết quả cảnh báo tầng 2
+
+Ngày đánh giá: 2026-11-08T23:59:59.999999+07:00. Mô hình: phobert_foody_add.
+
+Điều kiện chính thức: ít nhất 9 nhận xét và 9 nhóm văn bản mỗi tháng
+
+| Cửa sổ cơ sở | Nhà hàng–tháng đủ điều kiện | Nhà hàng có cảnh báo | Lượt cảnh báo |
+|---|---:|---:|---:|
+| 2 tháng | 21 | 2 | 2 |
+| 3 tháng | 4 | 0 | 0 |
+
+Tổng 40176 nhận xét, 569 nhà hàng. Có 2 nhà hàng có cảnh báo.
+Có 2 tổ hợp nhà hàng–tháng–khía cạnh có cảnh báo, 2 lượt khi tính cả hai cửa sổ.
+
+Mỗi nhà hàng hiển thị một lần; các tháng, khía cạnh và cửa sổ nằm trong thẻ nhà hàng.
+Tỷ lệ = NEG / toàn bộ nhận xét tháng. Cơ sở = trung bình cộng tỷ lệ của 2 hoặc 3 tháng lịch liền trước.
+Tháng đang xét và từng tháng cơ sở đều cần ít nhất 9 nhận xét và 9 nhóm văn bản khác nhau.
+Vàng: tỷ lệ ≥10%, tăng ≥10 điểm phần trăm, ít nhất 3 NEG. Đỏ: tỷ lệ ≥20%, tăng ≥20 điểm phần trăm, ít nhất 5 NEG.
+Cần đạt cả ba điều kiện, xét đỏ trước vàng. Không gộp kết quả hai cửa sổ để tạo màu mới.
+Tháng trống không có tỷ lệ 0; tháng chưa kết thúc không đánh giá. Thiếu nhãn máy thống nhất: chờ dự đoán.
+Kết quả ưu tiên nhãn tay xác nhận, còn lại dùng nhãn máy; chưa phải đánh giá độc lập độ chính xác cảnh báo.
+
+Mỗi bảng có baseline_months để phân biệt hai cửa sổ. Số nhà hàng và nhà hàng–tháng tổng đã bỏ trùng.
+Kết quả lưu tại thư mục lần chạy; hướng dẫn nằm tại docs/he_thong/tang2/HUONG_DAN_TANG_2.md.

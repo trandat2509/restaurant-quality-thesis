@@ -1,0 +1,83 @@
+{
+  "version": "foody_content_alerts_unified_v01",
+  "status": "complete",
+  "created_at_utc": "2026-10-27T18:12:36.021562+00:00",
+  "signature": {
+    "version": "foody_content_alerts_unified_v01",
+    "config_sha256": "19d57e4aea4714ae8918fd8dcc9c1ab122b6a4331697ca00b15932c04f8d3d43",
+    "program_sha256": "fed00a8c4e6eeacd31fe3c35d2c817aef4e73b90489b0ea85b8c04f0ef2d5a37",
+    "system_manifest_sha256": "525bc784b7f1afb9e10a0779aa4175680df11b08a5a047868c102c2672d9112a",
+    "system_outputs_sha256": {
+      "aspect_inputs.csv": "ce73d2af1145e21854bf5329b4748fe333206fe9a853e7669824ff642a76b6f9",
+      "a8_inputs.csv": "7891c65fac23d4b7495692b5f0ae65f99568d62a7104209b50432a56f004fc43"
+    },
+    "master_sha256": "73b94c112df490ccdfcb7d80873e7debc3a878f0781fea0d4976f62f6c6aedcb",
+    "system_reader_sha256": "1a456fa7e18c2b1f0e707c9b8475dff251c489e773c00b9ab5304383afdee9e2",
+    "update_reader_sha256": "f41d18f479aa3cbef480a847ff8d0401c0a67ad00b9eadeda1f8da8083a870e5",
+    "common_reader_sha256": "3664bc68c32e2cf6d9f04649dc2bafe2ed4ab7b1afba64785ad1de5a39a4bc41"
+  },
+  "summary": {
+    "input_aspect_pairs": 281232,
+    "aspect_reflections": 38182,
+    "needs_manual_review": 36967,
+    "a8_alerts": 377,
+    "total_alert_rows": 38559,
+    "unique_reviews_with_alert": 21293,
+    "by_aspect": {
+      "A1": 4557,
+      "A2": 4128,
+      "A3": 13711,
+      "A4": 6098,
+      "A5": 2298,
+      "A6": 4807,
+      "A7": 2583
+    },
+    "aspect_sentiment_sources": {
+      "model": 33203,
+      "manual": 4979
+    },
+    "aspect_severity_counts": {
+      "unknown": 31657,
+      "light": 6271,
+      "serious": 254
+    },
+    "a8_by_status": {
+      "CAN_XEM_XET": 219,
+      "DA_DUYET": 158
+    },
+    "review_reason_counts": {
+      "ambiguous_manual_position": 10,
+      "evidence_needs_review": 33213,
+      "evidence_requires_context_review": 15935,
+      "fragment_inside_word": 2271,
+      "low_sentiment_confidence": 1496,
+      "missing_evidence": 728,
+      "missing_or_unlocatable_evidence": 738,
+      "mixed_polarity_not_separated": 12758,
+      "negated_or_ambiguous_context": 130,
+      "no_aspect_rule_matched_evidence": 14854,
+      "sentiment_label_unverified": 33203,
+      "small_sentiment_margin": 651,
+      "very_short_fragment": 4718
+    },
+    "a8_explicit_negatives_excluded": 98,
+    "a8_new_detections_added": 0,
+    "tier2_built": false,
+    "model_retrained": false,
+    "independent_severity_accuracy_measured": false
+  },
+  "output_paths": {
+    "data": "reports/alerts/foody_v01/tang1/ban_dau/content_alerts.csv",
+    "report": "reports/alerts/foody_v01/tang1/ban_dau/kiem_tra_tang_1.md",
+    "manifest": "reports/alerts/foody_v01/tang1/ban_dau/content_run_manifest.json"
+  },
+  "output_sha256": {
+    "data": "a47b6498d7e1d8839f2987f5e6edcaf22619941f8b3f6b939bcb3cc3736aaac5",
+    "report": "019efdfffafaf821a4c58803516f003b81b8e7f1dbb45759942ba84eae1da83c"
+  },
+  "severity_is_rule_suggestion": true,
+  "manual_labels_modified": false,
+  "model_retrained": false,
+  "tier2_built": false,
+  "output_layout_version": 3
+}

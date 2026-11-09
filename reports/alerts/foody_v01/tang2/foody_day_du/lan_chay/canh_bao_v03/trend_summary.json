@@ -1,0 +1,65 @@
+{
+  "reviews": 40176,
+  "excluded_future_reviews": 0,
+  "restaurants": 569,
+  "observed_restaurant_months": 12873,
+  "calendar_restaurant_months": 61347,
+  "coverage_eligible_restaurant_months": 21,
+  "eligible_restaurant_months": 21,
+  "eligible_restaurants": 17,
+  "eligible_aspect_comparisons": 175,
+  "aspect_metric_rows": 180222,
+  "alert_rows": 2,
+  "alert_restaurant_months": 2,
+  "alert_restaurants": 2,
+  "levels": {
+    "yellow": 2
+  },
+  "coverage_statuses": {
+    "missing_baseline": 672,
+    "missing_current": 95810,
+    "insufficient_current": 24654,
+    "open_period": 1138,
+    "insufficient_baseline": 395,
+    "eligible": 25
+  },
+  "model_coverage_ready": true,
+  "pending_model_reviews": 0,
+  "model_version": "phobert_foody_add",
+  "profile": "chinh_thuc_9_9",
+  "temporary": false,
+  "as_of": "2026-11-07T23:59:59.999999+07:00",
+  "latest_review_month": "2026-07",
+  "latest_closed_month": "2026-10",
+  "latest_closed_month_alert_rows": 0,
+  "new_independent_model_evaluation": false,
+  "baseline_windows": [
+    2,
+    3
+  ],
+  "eligible_window_comparisons": 25,
+  "alert_unique_events": 2,
+  "label_selection": "confirmed_manual_else_model",
+  "selected_label_sources": {
+    "model": 194782,
+    "manual": 86450
+  },
+  "by_window": {
+    "2": {
+      "eligible_restaurant_months": 21,
+      "eligible_restaurants": 17,
+      "alert_rows": 2,
+      "alert_restaurants": 2,
+      "levels": {
+        "yellow": 2
+      }
+    },
+    "3": {
+      "eligible_restaurant_months": 4,
+      "eligible_restaurants": 4,
+      "alert_rows": 0,
+      "alert_restaurants": 0,
+      "levels": {}
+    }
+  }
+}

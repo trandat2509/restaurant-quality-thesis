@@ -1,0 +1,93 @@
+{
+  "version": "foody_content_alerts_unified_v01",
+  "status": "complete",
+  "created_at_utc": "2026-11-06T17:47:25.983605+00:00",
+  "output_layout_version": 3,
+  "signature": {
+    "version": "foody_content_alerts_unified_v01",
+    "config_sha256": "bafdb3d186e87b8db971dc6ac1393a46295bece418c1ccedf528baf11c3143ca",
+    "program_sha256": "8f55e7d372f94c1647c4896d1cdf641498acc67379fd9d0a545d309d3295ce46",
+    "system_manifest_sha256": "6705649c87b3fd28d1dc8579ae33c3c07da782649612e1239795ea28f0941e40",
+    "system_outputs_sha256": {
+      "reviews_master.csv": "bf5e7ea60b66859c3ec203861fe6113124c9a236248dfa25757565f0831d88bb",
+      "aspect_inputs.csv": "7ae2eb704f466ee07fda0f2db25413ba96a70a538afbadc53613c5728262346a",
+      "a8_inputs.csv": "7891c65fac23d4b7495692b5f0ae65f99568d62a7104209b50432a56f004fc43",
+      "update_plan.json": "e3eecba736869ebf2e559d51d1c6f542cc36d7d1872bc40d7e42709e3402865c",
+      "tier2_input_contract.json": "dd001faf7397932e4c68cbd7ebcfe68f9529cd7898f3897945422cb179a3345b",
+      "inputs/batch.json": "9a227037781c10cd27cf3ec4b95a0a41b31c114ac95b3f490b648de03e757aa2",
+      "inputs/manual_file.csv": "a03d9a16177b29c1eea8c03a5749dedb21bbdcfce417e7703e497e02cb6ca60c",
+      "inputs/predictions_file.csv": "4e51fb373efa2db9ed7e7e7c1010f5fb63b8378895337df197178e5779b883cb",
+      "inputs/evidence_file.csv": "ebfd4be59e1fb51ba191b837245bfe2788ef3893b472825758e7cdfdb0126499",
+      "inputs/model_profile_file.json": "e184fec384ab387dc2b55fc7b1b57596bcdbb8e11266bb507aeaf1f839e16647",
+      "inputs/evidence_profile_file.json": "b18763ab68591627c3acd7759f409519b85b7524b40aefc5d9f38e737d236925",
+      "inputs/source_manifest_file.json": "05f8b3dc280eeb25bad9d2d06da1ef53330b3c647a2e63839dbabdc0605d14b5"
+    },
+    "master_sha256": "bf5e7ea60b66859c3ec203861fe6113124c9a236248dfa25757565f0831d88bb",
+    "system_reader_sha256": "8264418cd8eaab9288cf2c92910c66becc0c4ffb13341305e536e995991dfc80",
+    "update_reader_sha256": "61145e03fa6a9fb26af88b60017adef27b7a9d40d2af82f5186c9be045aae1cd",
+    "common_reader_sha256": "3664bc68c32e2cf6d9f04649dc2bafe2ed4ab7b1afba64785ad1de5a39a4bc41"
+  },
+  "summary": {
+    "input_aspect_pairs": 281232,
+    "aspect_reflections": 33663,
+    "needs_manual_review": 28185,
+    "a8_alerts": 377,
+    "total_alert_rows": 34040,
+    "unique_reviews_with_alert": 20555,
+    "by_aspect": {
+      "A1": 3626,
+      "A2": 3597,
+      "A3": 12969,
+      "A4": 5584,
+      "A5": 1943,
+      "A6": 4392,
+      "A7": 1552
+    },
+    "aspect_sentiment_sources": {
+      "model": 17922,
+      "manual": 15741
+    },
+    "aspect_severity_counts": {
+      "unknown": 25757,
+      "light": 7637,
+      "serious": 269
+    },
+    "a8_by_status": {
+      "CAN_XEM_XET": 219,
+      "DA_DUYET": 158
+    },
+    "review_reason_counts": {
+      "ambiguous_manual_position": 23,
+      "evidence_needs_review": 17945,
+      "evidence_requires_context_review": 9325,
+      "fragment_inside_word": 828,
+      "low_sentiment_confidence": 1470,
+      "missing_evidence": 407,
+      "missing_or_unlocatable_evidence": 430,
+      "mixed_polarity_not_separated": 8259,
+      "negated_or_ambiguous_context": 139,
+      "no_aspect_rule_matched_evidence": 15863,
+      "sentiment_label_unverified": 17922,
+      "small_sentiment_margin": 581,
+      "very_short_fragment": 2575
+    },
+    "a8_explicit_negatives_excluded": 98,
+    "a8_new_detections_added": 0,
+    "tier2_built": false,
+    "model_retrained": false,
+    "independent_severity_accuracy_measured": false
+  },
+  "output_paths": {
+    "data": "reports/alerts/foody_v01/tang1/foody_day_du/content_alerts.csv",
+    "report": "reports/alerts/foody_v01/tang1/foody_day_du/kiem_tra_tang_1.md",
+    "manifest": "reports/alerts/foody_v01/tang1/foody_day_du/content_run_manifest.json"
+  },
+  "output_sha256": {
+    "data": "5922080ab56590a74665c673af2c4b46bc86401cdd4eb51e5c84d1dc4af9d21e",
+    "report": "c9bd51bada96203c32cfe772824429ed6edec04287549059a9f94b981830b717"
+  },
+  "severity_is_rule_suggestion": true,
+  "manual_labels_modified": false,
+  "model_retrained": false,
+  "tier2_built": false
+}

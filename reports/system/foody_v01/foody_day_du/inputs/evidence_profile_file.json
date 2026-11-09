@@ -1,0 +1,6 @@
+{
+  "format": "foody_add",
+  "model_version": "phobert_evidence_add",
+  "model_dir": "models/phobert_evidence_add",
+  "vncorenlp_dir": "experiments/absa_training_experiment_v01/tools/vncorenlp"
+}

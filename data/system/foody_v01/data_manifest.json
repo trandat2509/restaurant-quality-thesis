@@ -1,0 +1,52 @@
+{
+  "created_at": "2026-10-17T08:26:43.229374+00:00",
+  "system_version": "foody_v01",
+  "corpus_rows": 40176,
+  "labeled_rows": 3350,
+  "train_rows": 3348,
+  "unlabeled_rows": 36826,
+  "excluded_review_ids": [
+    "foody_18515513",
+    "foody_3514027"
+  ],
+  "training_dataset_sha256": "812c9e3dbbb23e9a3a85d099c704a7dbb1448ec23d50fa897a14aa62bd6a7917",
+  "sources": {
+    "corpus": {
+      "path": "data/processed/reviews_thesis_base.csv",
+      "sha256": "2f54ff9da47bf42aa4ac97cbea4912c8003b365cb3ecf6a9029e66c3edb3c2b8"
+    },
+    "labeled": {
+      "path": "data/training/foody_3350_v02/foody_absa_3350_labeled.csv",
+      "sha256": "3f19a4cf7150f54c20ff3da77a0a2b94c08a5e23182744992656051993eaef08"
+    },
+    "confirmed": {
+      "path": "data/modeling/foody_3350_v02/absa_confirmed.csv",
+      "sha256": "2e3e4e85bc7fc86a6be44678d35958ae995fd5d32fad658ee28179d2727ec618"
+    }
+  },
+  "reference_run_config_sha256": "2cba5c44bf2f2cd0796ecabbc21606ad3d0ab529c31a8c9261396590953f3df7",
+  "output_sha256": {
+    "train_reviews.csv": "2e3e4e85bc7fc86a6be44678d35958ae995fd5d32fad658ee28179d2727ec618",
+    "reviews_master.csv": "73b94c112df490ccdfcb7d80873e7debc3a878f0781fea0d4976f62f6c6aedcb"
+  },
+  "label_policy": "Giữ 3348 nhận xét, không chuyển nhãn dự đoán thành nhãn tay",
+  "training_input_features": [
+    "review_text_nlp"
+  ],
+  "targets": [
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "A5",
+    "A6",
+    "A7"
+  ],
+  "labels": [
+    "NONE",
+    "POS",
+    "NEU",
+    "NEG",
+    "MIX"
+  ]
+}

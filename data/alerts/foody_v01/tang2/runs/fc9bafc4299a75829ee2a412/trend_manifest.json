@@ -1,0 +1,110 @@
+{
+  "version": "foody_trend_alerts_v01",
+  "status": "complete",
+  "created_at_utc": "2026-10-29T05:18:05.013748+00:00",
+  "signature": {
+    "version": "foody_trend_alerts_v01",
+    "policy": {
+      "primary_period": "month",
+      "timezone": "Asia/Ho_Chi_Minh",
+      "baseline_previous_calendar_periods": 3,
+      "primary_metric": "complaint_rate",
+      "counting_unit": "review_id",
+      "metrics": {
+        "complaint_rate": "NEG / all_reviews",
+        "negative_content_rate": "(NEG + MIX) / all_reviews",
+        "negative_among_mentions_rate": "(NEG + MIX) / (POS + NEU + NEG + MIX)"
+      },
+      "data_requirements": {
+        "min_reviews_current": 5,
+        "min_reviews_each_baseline_period": 5,
+        "min_distinct_text_groups_current": 3,
+        "min_distinct_text_groups_each_baseline_period": 3,
+        "require_closed_current_period": true,
+        "zero_review_period_is_missing": true
+      },
+      "thresholds": {
+        "yellow": {
+          "min_current_rate": 0.15,
+          "min_increase_pp": 10,
+          "min_problem_reviews": 3
+        },
+        "red": {
+          "min_current_rate": 0.25,
+          "min_increase_pp": 20,
+          "min_problem_reviews": 5
+        }
+      },
+      "uncertainty": {
+        "wilson_z": 1.96,
+        "display_interval": true,
+        "affects_level": false
+      },
+      "model_confidence_filter": null,
+      "manual_labels_replace_predictions": false,
+      "baseline_implementation": "arithmetic_mean_of_three_calendar_period_rates",
+      "profile": "tam_thoi_5_3",
+      "profile_title": "Điều kiện tạm: 5 nhận xét, 3 nhóm văn bản mỗi tháng",
+      "temporary": true
+    },
+    "as_of": "2026-10-29T23:59:59.999999+07:00",
+    "system_manifest_sha256": "525bc784b7f1afb9e10a0779aa4175680df11b08a5a047868c102c2672d9112a",
+    "master_sha256": "73b94c112df490ccdfcb7d80873e7debc3a878f0781fea0d4976f62f6c6aedcb",
+    "system_outputs_sha256": {
+      "aspect_inputs.csv": "ce73d2af1145e21854bf5329b4748fe333206fe9a853e7669824ff642a76b6f9",
+      "a8_inputs.csv": "7891c65fac23d4b7495692b5f0ae65f99568d62a7104209b50432a56f004fc43"
+    },
+    "builder_sha256": "ade8f697c33cf521edf3a9f9689f446ee41ca19dfb60aa8bc097aa4148316d47",
+    "view_sha256": "b75a745f8d2dc217089b68b74f20577e64df53ed9884d51540d194bfdd03bc3b",
+    "system_reader_sha256": "1a456fa7e18c2b1f0e707c9b8475dff251c489e773c00b9ab5304383afdee9e2",
+    "update_reader_sha256": "5bbac9ed16c928875ca1079cec6e9bb5268fe9a2702aabe38f548b96604cba6d"
+  },
+  "summary": {
+    "reviews": 40176,
+    "excluded_future_reviews": 0,
+    "restaurants": 569,
+    "observed_restaurant_months": 12873,
+    "calendar_restaurant_months": 60778,
+    "coverage_eligible_restaurant_months": 127,
+    "eligible_restaurant_months": 127,
+    "eligible_restaurants": 73,
+    "eligible_aspect_comparisons": 889,
+    "aspect_metric_rows": 90111,
+    "alert_rows": 37,
+    "alert_restaurant_months": 26,
+    "alert_restaurants": 19,
+    "levels": {
+      "yellow": 31,
+      "red": 6
+    },
+    "coverage_statuses": {
+      "missing_baseline": 951,
+      "missing_current": 47336,
+      "insufficient_current": 10922,
+      "open_period": 569,
+      "insufficient_baseline": 873,
+      "eligible": 127
+    },
+    "model_coverage_ready": true,
+    "pending_model_reviews": 0,
+    "model_version": "phobert_foody_3350_final_v01",
+    "profile": "tam_thoi_5_3",
+    "temporary": true,
+    "as_of": "2026-10-29T23:59:59.999999+07:00",
+    "latest_review_month": "2026-07",
+    "latest_closed_month": "2026-09",
+    "latest_closed_month_alert_rows": 0,
+    "new_independent_model_evaluation": false
+  },
+  "output_sha256": {
+    "trend_coverage.csv": "00fcad9956a69e94c3c673cbe58f5dc16f3f123a902a038e4cf1bfa9f69e8d13",
+    "trend_metrics.csv": "4b3dadbc60837e56f08721601f1edd1794bf6961f43fa221ef1a3a96005c16df",
+    "trend_alerts.csv": "3ebc9ffc4d44ea3be878a6610fb32f1ae14aa1753cfe4b2d18dd54ddfe95644e",
+    "trend_summary.json": "673e78def0d866912991ab78facffc0ece7bf3a4e53f281c1efe462deb41e778",
+    "bao_cao_tang_2.md": "66ad60d25288a57e5a4ac4e329920b719e3c90172ab9767280a5386247a18d48",
+    "demo_tang_2.html": "8c6878e5cf3fa9b0c1430ddc33512eb31b22ae53d9966e91e0ea2c342dd5afc1"
+  },
+  "recalculation_mode": "full_current_snapshot",
+  "model_retrained": false,
+  "predictions_generated": false
+}
