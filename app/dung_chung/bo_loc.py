@@ -1,4 +1,4 @@
-"""Chọn một nhà hàng và phạm vi tháng dùng chung cho các cảnh báo."""
+"""Chọn nhà hàng và tháng phát cảnh báo."""
 import streamlit as st
 
 from dung_chung.bo_cuc import chon, thang_nam
@@ -20,9 +20,6 @@ def hien_bo_loc(ctx, restaurant_id):
     master = ctx['master']
     months = master.loc[master.restaurant_id.eq(restaurant_id), 'review_month'].unique()
     labels = {'': 'Tất cả các tháng', **{month: thang_nam(month) for month in months}}
-    if 'loc_thang_canh_bao' not in st.session_state:
-        st.session_state['loc_thang_canh_bao'] = st.session_state.get('thang_xu_huong', '')
     month = chon(['', *sorted(months, reverse=True)], labels,
-                 'Tháng phát cảnh báo xu hướng', 'loc_thang_canh_bao')
-    st.session_state['thang_xu_huong'] = month
+                 'Tháng phát cảnh báo', 'loc_thang_canh_bao')
     return {'restaurant': restaurant_id, 'start': month, 'end': month}

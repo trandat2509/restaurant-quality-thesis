@@ -23,12 +23,21 @@ def hien_bang_chung(evidence, needs_review=False):
 
 def hien_binh_luan_goc(review, muc_do=None):
     with st.container(border=True, key='the_binh_luan_goc'):
-        badge = huy_hieu(f'Mức độ cảnh báo · {muc_do}', MAU_MUC_DO[muc_do]) if muc_do else ''
+        badge = huy_hieu(f'Mức độ cảnh báo · {muc_do}', MAU_MUC_DO.get(muc_do, 'NONE')) if muc_do else ''
         month = escape(thang_nam(review['review_month']))
         st.markdown(f'<div class="dau-the"><h4>Bình luận gốc</h4>'
                     f'<span class="thang-binh-luan">{month}</span>{badge}</div>',
                     unsafe_allow_html=True)
         st.text(review['review_text'])
+
+
+def _hien_the_khia_canh(row, level=None):
+    with st.container(border=True, key=f'the_khia_canh_{row.aspect}'):
+        severity = huy_hieu(TEN_MUC_DO[level], MAU_KHIA_CANH[level]) if level else ''
+        st.markdown(f'<div class="dau-the"><strong>{escape(ASPECT_NAMES[row.aspect])}</strong>'
+                    f'{huy_hieu(row.label, row.label)}{severity}</div>', unsafe_allow_html=True)
+        if row.label != 'NONE':
+            hien_bang_chung(row.evidence_text, row.evidence_needs_review)
 
 
 def hien_khia_canh(aspects, levels=None):
@@ -37,25 +46,23 @@ def hien_khia_canh(aspects, levels=None):
         for start in range(0, len(rows), 2):
             pair = rows[start:start + 2]
             for col, row in zip(st.columns(len(pair)), pair):
-                with col.container(border=True, key=f'the_khia_canh_{row.aspect}'):
+                with col:
                     level = levels.get(row.aspect) if levels is not None else None
-                    severity = huy_hieu(TEN_MUC_DO[level], MAU_KHIA_CANH[level]) if level else ''
-                    st.markdown(f'<div class="dau-the"><strong>{escape(ASPECT_NAMES[row.aspect])}</strong>'
-                                f'{huy_hieu(row.label, row.label)}{severity}</div>', unsafe_allow_html=True)
-                    if row.label != 'NONE':
-                        hien_bang_chung(row.evidence_text, row.evidence_needs_review)
+                    _hien_the_khia_canh(row, level)
 
 
-def hien_su_co(review, incident_types, status, evidence, needs_review):
+def hien_su_co(review, incident_types, status, evidence, needs_review, *, show_review=True):
     confirmed = status == 'DA_DUYET'
     state = huy_hieu('Đã xác nhận' if confirmed else 'Cần xem xét', 'POS' if confirmed else 'vua')
     with st.container(border=True, key='the_su_co'):
         month = escape(thang_nam(review['review_month']))
-        st.markdown(f'<div class="dau-the"><h4>Sự cố bất thường</h4>{state}'
+        badge = huy_hieu('A8', 'red') if not show_review else ''
+        st.markdown(f'<div class="dau-the"><h4>Sự cố bất thường</h4>{badge}{state}'
                     f'<span class="thang-binh-luan">{month}</span></div>', unsafe_allow_html=True)
         st.text(' · '.join(ten_su_co(incident_types)))
-        st.markdown('**Bình luận gốc**')
-        st.text(review['review_text'])
+        if show_review:
+            st.markdown('**Bình luận gốc**')
+            st.text(review['review_text'])
         hien_bang_chung(evidence, needs_review)
 
 
@@ -81,4 +88,10 @@ def hien_chi_tiet(ctx, review_id=None, key='nhan_xet'):
 
     st.markdown('##### Phân tích theo khía cạnh')
     aspects = ctx['aspects']
-    hien_khia_canh(aspects.loc[aspects.review_id.eq(review_id)])
+    selected = aspects.loc[aspects.review_id.eq(review_id)]
+    if key == 'nha_hang':
+        with st.container(key='danh_sach_khia_canh_nha_hang'):
+            for row in selected.sort_values('aspect').itertuples():
+                _hien_the_khia_canh(row)
+    else:
+        hien_khia_canh(selected)
