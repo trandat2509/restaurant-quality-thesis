@@ -14,7 +14,7 @@ from dung_chung.bo_cuc import khoi_tao, tieu_de
 from dung_chung.bo_loc import chon_nha_hang, hien_bo_loc
 from ket_noi.trang_thai import _nap, nap_du_lieu, require_part
 from nha_hang.danh_sach import hien_trang as hien_nha_hang
-from tai_khoan import yeu_cau_dang_nhap
+# from tai_khoan import yeu_cau_dang_nhap
 from tang_1.danh_sach import hien_trang as hien_tang_1
 from tang_2.danh_sach import hien_trang as hien_tang_2
 from tong_quan.trang import hien_trang as hien_tong_quan
@@ -48,7 +48,7 @@ def chuyen_muc(page, scope=None, focus=None, trend=None):
 
 khoi_tao(APP)
 menu = st.sidebar.empty()
-yeu_cau_dang_nhap()
+# yeu_cau_dang_nhap()
 with menu.container():
     st.markdown('### Cảnh báo nhà hàng')
     st.caption('Chất lượng dịch vụ')
